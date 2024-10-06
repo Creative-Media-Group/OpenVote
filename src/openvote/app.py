@@ -15,7 +15,8 @@ class OpenVote(toga.App):
         We then create a main window (with a name matching the app), and
         show the main window.
         """
-        main_box = toga.Box()
+        # title = toga.
+        main_box = toga.Box(children=[])
 
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.main_window.content = main_box
