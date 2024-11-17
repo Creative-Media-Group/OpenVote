@@ -2,4 +2,7 @@ stringname,en,de
 HELLO,Hello,Hallo
 TAB2,Tab 2,Tab 2
 ADMINISTRATION,Administration,Verwaltung
-,,
+VOTINGDATA,Votingdata,Wahldaten
+TRENDS,Votingtrends,Wahltrends
+REPORTMESSAGE,Report message,Rapportmeldung
+EVALUATION,Evaluation,Auswertung
