@@ -26,6 +26,13 @@ class OpenVote(toga.App):
                     "OpenVote",
                     style=Pack(font_size=50, text_align="center", padding=10),
                 ),
+                toga.Button(
+                    tr(
+                        csv_file=self.file,
+                        target_key="DISTRICTCOUNCILELECTION",
+                        langcode=self.lang,
+                    ),on_press=lambda _:self.switchtotab(1)
+                ),
             ],
             style=Pack(alignment="center", direction="column", flex=1),
         )
