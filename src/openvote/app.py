@@ -33,6 +33,7 @@ class OpenVote(toga.App):
                         langcode=self.lang,
                     ),
                     on_press=lambda _: self.switchtotab(1),
+                    style=Pack(text_align="center", padding=10),
                 ),
             ],
             style=Pack(alignment="center", direction="column", flex=1),
