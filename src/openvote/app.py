@@ -12,16 +12,15 @@ platform = toga.platform.current_platform
 
 
 class OpenVote(toga.App):
+    def switchtotab(self, tab):
+        self.container.current_tab = tab
+
     def startup(self):
         self.file = f"{self.paths.app.absolute()}/resources/localisation.csv"
         if platform == "android":
             self.lang = str(
                 self._impl.native.getResources().getConfiguration().getLocales().get(0)
             ).split("_")[0]
-            # self.formal_name = (
-            #    tr(csv_file=self.file, target_key="FORMALNAME", langcode=self.lang),
-            # )
-
         else:
             self.lang = locale.getlocale()[0].split("_")[0]
         hometab = toga.Box(
@@ -33,17 +32,20 @@ class OpenVote(toga.App):
             ],
             style=Pack(alignment="center", direction="column", flex=1),
         )
-        container = toga.OptionContainer(
+        tab2 = toga.Box(children=[])
+        self.container = toga.OptionContainer(
             content=[
                 (
+                    tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
+                    hometab,
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
                 )
             ]
         )
-        container.style.direction = "column"
+        self.container.style.direction = "column"
         self.main_window = toga.MainWindow(title=self.formal_name)
-        container.current_tab = 0
+        self.container.current_tab = 0
         self.main_window.content = container
         self.main_window.show()
 
