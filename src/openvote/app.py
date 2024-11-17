@@ -35,15 +35,14 @@ class OpenVote(toga.App):
                 (
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
-                    tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
-                    hometab,
-                )
+                ),
+                (tr(csv_file=self.file, target_key="TAB2", langcode=self.lang), tab2),
             ]
         )
         self.container.style.direction = "column"
         self.main_window = toga.MainWindow(title=self.formal_name)
         self.container.current_tab = 0
-        self.main_window.content = container
+        self.main_window.content = self.container
         self.main_window.show()
 
 
