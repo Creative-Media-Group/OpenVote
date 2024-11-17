@@ -44,7 +44,14 @@ class OpenVote(toga.App):
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
                 ),
-                (tr(csv_file=self.file, target_key="DISTRICTCOUNCILELECTION", langcode=self.lang), tab2),
+                (
+                    tr(
+                        csv_file=self.file,
+                        target_key="DISTRICTCOUNCILELECTION",
+                        langcode=self.lang,
+                    ),
+                    tab2,
+                ),
             ]
         )
         self.container.style.direction = "column"
