@@ -34,6 +34,7 @@ class OpenVote(toga.App):
                     ),
                     on_press=lambda _: self.switchtotab(1),
                     style=Pack(text_align="center", padding=10),
+                    icon="pizza",
                 ),
             ],
             style=Pack(alignment="center", direction="column", flex=1),
