@@ -34,7 +34,6 @@ class OpenVote(toga.App):
                     ),
                     on_press=lambda _: self.switchtotab(1),
                     style=Pack(text_align="center", padding=10),
-                    icon="openvote",
                 ),
             ],
             style=Pack(alignment="center", direction="column", flex=1),
@@ -45,6 +44,7 @@ class OpenVote(toga.App):
                 (
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
+                    toga.Icon("openvote"),
                 ),
                 (
                     tr(
