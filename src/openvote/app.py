@@ -44,7 +44,7 @@ class OpenVote(toga.App):
                 toga.OptionItem(
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
-                    icon=toga.Icon(f"{self.paths.app.absolute()}/resources/openvote"),
+                    icon=toga.Icon(f"{self.paths.app.absolute()}/resources/home"),
                 ),
                 toga.OptionItem(
                     tr(
