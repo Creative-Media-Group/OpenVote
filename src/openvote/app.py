@@ -41,19 +41,21 @@ class OpenVote(toga.App):
         tab2 = toga.Box(children=[])
         self.container = toga.OptionContainer(
             content=[
-                (
+                toga.OptionItem(
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
-                    toga.Icon("openvote"),
+                    icon=toga.Icon(f"{self.paths.app.absolute()}/resources/openvote"),
                 ),
-                (
+                toga.OptionItem(
                     tr(
                         csv_file=self.file,
                         target_key="DISTRICTCOUNCILELECTION",
                         langcode=self.lang,
                     ),
                     tab2,
-                    toga.Icon("districtcouncilelection"),
+                    icon=toga.Icon(
+                        f"{self.paths.app.absolute()}/resources/districtcouncilelection"
+                    ),
                 ),
             ]
         )
