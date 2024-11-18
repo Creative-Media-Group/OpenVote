@@ -53,6 +53,7 @@ class OpenVote(toga.App):
                         langcode=self.lang,
                     ),
                     tab2,
+                    toga.Icon("districtcouncilelection"),
                 ),
             ]
         )
