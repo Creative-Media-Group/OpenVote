@@ -38,7 +38,7 @@ class OpenVote(toga.App):
                 toga.Button(
                     tr(
                         csv_file=self.file,
-                        target_key="DISTRICTCOUNCILELECTION",
+                        target_key="FEDERALELECTION",
                         langcode=self.lang,
                     ),
                     on_press=lambda _: self.switchtotab(2),
