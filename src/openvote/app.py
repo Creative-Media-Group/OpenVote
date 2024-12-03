@@ -55,11 +55,13 @@ class OpenVote(toga.App):
                 toga.OptionItem(
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
-                    icon=toga.Icon(tr(
+                    icon=toga.Icon(
+                        tr(
                             csv_file=self.file,
                             target_key="HELLO_PATH",
                             langcode=self.lang,
-                        ).format(path=self.mypath)),
+                        ).format(path=self.mypath)
+                    ),
                 ),
                 toga.OptionItem(
                     tr(
