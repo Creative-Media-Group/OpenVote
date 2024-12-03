@@ -7,3 +7,6 @@ REPORTMESSAGE,Report message,Rapportmeldung
 EVALUATION,Evaluation,Auswertung
 DISTRICTCOUNCILELECTION,District council election,Kreistagswahl
 FEDERALELECTION,Federalvote,Bundeswahl
+HELLO_PATH,{path}/resources/home,{path}/resources/home
+DISTRICTCOUNCILELECTION_PATH,{path}/resources/districtcouncilelection,{path}/resources/districtcouncilelection
+FEDERALELECTION_PATH,{path}/resources/districtcouncilelection,{path}/resources/districtcouncilelection

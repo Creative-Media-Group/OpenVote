@@ -14,6 +14,7 @@ class OpenVote(toga.App):
 
     def startup(self):
         self.file = f"{self.paths.app.absolute()}/resources/localisation.csv"
+        self.mypath = self.paths.app.absolute()
         if platform == "android":
             self.lang = str(
                 self._impl.native.getResources().getConfiguration().getLocales().get(0)
@@ -54,7 +55,11 @@ class OpenVote(toga.App):
                 toga.OptionItem(
                     tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
                     hometab,
-                    icon=toga.Icon(f"{self.paths.app.absolute()}/resources/home"),
+                    icon=toga.Icon(tr(
+                            csv_file=self.file,
+                            target_key="HELLO_PATH",
+                            langcode=self.lang,
+                        ).format(path=self.mypath)),
                 ),
                 toga.OptionItem(
                     tr(
@@ -64,7 +69,11 @@ class OpenVote(toga.App):
                     ),
                     district_tab,
                     icon=toga.Icon(
-                        f"{self.paths.app.absolute()}/resources/districtcouncilelection"
+                        tr(
+                            csv_file=self.file,
+                            target_key="DISTRICTCOUNCILELECTION_PATH",
+                            langcode=self.lang,
+                        ).format(path=self.mypath)
                     ),
                 ),
                 toga.OptionItem(
@@ -75,7 +84,11 @@ class OpenVote(toga.App):
                     ),
                     federal_tab,
                     icon=toga.Icon(
-                        f"{self.paths.app.absolute()}/resources/districtcouncilelection"
+                        tr(
+                            csv_file=self.file,
+                            target_key="FEDERALELECTION_PATH",
+                            langcode=self.lang,
+                        ).format(path=self.mypath)
                     ),
                 ),
             ]
