@@ -35,11 +35,20 @@ class OpenVote(toga.App):
                     on_press=lambda _: self.switchtotab(1),
                     style=Pack(text_align="center", padding=10),
                 ),
+                toga.Button(
+                    tr(
+                        csv_file=self.file,
+                        target_key="DISTRICTCOUNCILELECTION",
+                        langcode=self.lang,
+                    ),
+                    on_press=lambda _: self.switchtotab(2),
+                    style=Pack(text_align="center", padding=10),
+                ),
             ],
             style=Pack(alignment="center", direction="column", flex=1),
         )
-        tab2 = toga.Box(children=[])
-        tab3 = toga.Box(children=[])
+        district_tab = toga.Box(children=[])
+        federal_tab = toga.Box(children=[])
         self.container = toga.OptionContainer(
             content=[
                 toga.OptionItem(
@@ -53,7 +62,7 @@ class OpenVote(toga.App):
                         target_key="DISTRICTCOUNCILELECTION",
                         langcode=self.lang,
                     ),
-                    tab2,
+                    district_tab,
                     icon=toga.Icon(
                         f"{self.paths.app.absolute()}/resources/districtcouncilelection"
                     ),
@@ -64,7 +73,7 @@ class OpenVote(toga.App):
                         target_key="FEDERALELECTION",
                         langcode=self.lang,
                     ),
-                    tab3,
+                    federal_tab,
                     icon=toga.Icon(
                         f"{self.paths.app.absolute()}/resources/districtcouncilelection"
                     ),
