@@ -13,8 +13,8 @@ class OpenVote(toga.App):
         self.container.current_tab = tab
 
     def startup(self):
-        self.file = f"{self.paths.app.absolute()}/resources/localisation.csv"
         self.mypath = self.paths.app.absolute()
+        self.file = f"{self.mypath}/resources/localisation.csv"
         if platform == "android":
             self.lang = str(
                 self._impl.native.getResources().getConfiguration().getLocales().get(0)
