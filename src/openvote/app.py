@@ -2,7 +2,7 @@ import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 import locale
-from mylocale.TR import tr
+from mylocale import tr
 
 
 platform = toga.platform.current_platform
