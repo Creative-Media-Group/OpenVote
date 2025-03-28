@@ -25,7 +25,7 @@ class OpenVote(toga.App):
             children=[
                 toga.Label(
                     "OpenVote",
-                    style=Pack(font_size=50, text_align="center", padding=10),
+                    style=Pack(font_size=50, text_align="center", margin=10),
                 ),
                 toga.Button(
                     tr(
@@ -34,7 +34,7 @@ class OpenVote(toga.App):
                         langcode=self.lang,
                     ),
                     on_press=lambda _: self.switchtotab(1),
-                    style=Pack(text_align="center", padding=10),
+                    style=Pack(text_align="center", margin=10),
                 ),
                 toga.Button(
                     tr(
@@ -43,10 +43,10 @@ class OpenVote(toga.App):
                         langcode=self.lang,
                     ),
                     on_press=lambda _: self.switchtotab(2),
-                    style=Pack(text_align="center", padding=10),
+                    style=Pack(text_align="center", margin=10),
                 ),
             ],
-            style=Pack(alignment="center", direction="column", flex=1),
+            style=Pack(align_items="center", direction="column", flex=1),
         )
         district_tab = toga.Box(children=[])
         federal_tab = toga.Box(children=[])
