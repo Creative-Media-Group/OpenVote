@@ -1,4 +1,4 @@
-# This project was generated with 0.3.19 using template: https://github.com/beeware/briefcase-template@v0.3.19
+# This project was generated with 0.3.22 using template: https://github.com/beeware/briefcase-template@v0.3.22
 [tool.briefcase]
 project_name = "OpenVote"
 bundle = "de.cmg"
@@ -6,7 +6,7 @@ version = "0.0.1"
 url = "https://github.com/Creative-Media-Group/OpenVote"
 license.file = "LICENSE"
 author = "Jane Developer"
-author_email = "jane@example.com"
+author_email = "jane@cmg.de"
 
 [tool.briefcase.app.openvote]
 formal_name = "OpenVote"
