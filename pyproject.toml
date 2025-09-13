@@ -1,48 +1,61 @@
-# This project was generated with 0.3.22 using template: https://github.com/beeware/briefcase-template@v0.3.22
+# This project was generated with 0.3.25 using template: https://github.com/beeware/briefcase-template @ v0.3.25
 [tool.briefcase]
 project_name = "OpenVote"
 bundle = "de.cmg"
 version = "0.0.1"
 url = "https://github.com/Creative-Media-Group/OpenVote"
 license.file = "LICENSE"
-author = "Jane Developer"
-author_email = "jane@cmg.de"
+author = "tct123"
+author_email = "42028373+tct123@users.noreply.github.com"
 
 [tool.briefcase.app.openvote]
 formal_name = "OpenVote"
-description = "Votingsoftware"
+description = "My first application"
 long_description = """More details about the app should go here.
 """
 sources = ["src/openvote"]
 test_sources = ["tests"]
 
-requires = ["mylocale"]
+requires = []
 test_requires = ["pytest"]
 
 [tool.briefcase.app.openvote.macOS]
 universal_build = true
-requires = ["toga-cocoa~=0.5.2", "std-nslog~=1.0.3"]
+requires = ["toga-cocoa~=0.5.0", "std-nslog~=1.0.3"]
 
 [tool.briefcase.app.openvote.linux]
-requires = ["toga-gtk~=0.5.2"]
+requires = [
+    "toga-gtk~=0.5.0",
+    # PyGObject 3.52.1 enforces a requirement on libgirepository-2.0-dev. This library
+    # isn't available on Debian 12/Ubuntu 22.04. If you don't need to support those (or
+    # older) releases, you can remove this version pin. See beeware/toga#3143.
+    "pygobject < 3.52.1",
+]
 
 [tool.briefcase.app.openvote.linux.system.debian]
 system_requires = [
     # Needed to compile pycairo wheel
     "libcairo2-dev",
-    # Needed to compile PyGObject wheel
+    # One of the following two packages are needed to compile PyGObject wheel. If you
+    # remove the pygobject pin in the requires list, you should also change to the
+    # version 2.0 of the girepository library. See beeware/toga#3143.
     "libgirepository1.0-dev",
+    # "libgirepository-2.0-dev",
 ]
 
 system_runtime_requires = [
     # Needed to provide GTK and its GI bindings
     "gir1.2-gtk-3.0",
+    # One of the following two packages are needed to use PyGObject at runtime. If you
+    # remove the pygobject pin in the requires list, you should also change to the
+    # version 2.0 of the girepository library. See beeware/toga#3143.
     "libgirepository-1.0-1",
+    # "libgirepository-2.0-0",
     # Dependencies that GTK looks for at runtime
     "libcanberra-gtk3-module",
     # Needed to provide WebKit2 at runtime
-    # Note: Debian 11 and Ubuntu 20.04 require gir1.2-webkit2-4.0 instead
-    "gir1.2-webkit2-4.1",
+    # Note: Debian 11 requires gir1.2-webkit2-4.0 instead
+    # "gir1.2-webkit2-4.1",
 ]
 
 [tool.briefcase.app.openvote.linux.system.rhel]
@@ -132,20 +145,20 @@ linuxdeploy_plugins = ["DEPLOY_GTK_VERSION=3 gtk"]
 
 [tool.briefcase.app.openvote.linux.flatpak]
 flatpak_runtime = "org.gnome.Platform"
-flatpak_runtime_version = "47"
+flatpak_runtime_version = "48"
 flatpak_sdk = "org.gnome.Sdk"
 
 [tool.briefcase.app.openvote.windows]
-requires = ["toga-winforms~=0.5.2"]
+requires = ["toga-winforms~=0.5.0"]
 
 # Mobile deployments
 [tool.briefcase.app.openvote.iOS]
-requires = ["toga-iOS~=0.5.2", "std-nslog~=1.0.3"]
+requires = ["toga-iOS~=0.5.0", "std-nslog~=1.0.3"]
 
 [tool.briefcase.app.openvote.android]
-requires = ["toga-android~=0.5.2"]
+requires = ["toga-android~=0.5.0"]
 
-base_theme = "Theme.Material3.DynamicColors.DayNight"
+base_theme = "Theme.MaterialComponents.Light.DarkActionBar"
 
 build_gradle_dependencies = [
     "com.google.android.material:material:1.12.0",
@@ -157,5 +170,5 @@ build_gradle_dependencies = [
 
 # Web deployments
 [tool.briefcase.app.openvote.web]
-requires = ["toga-web~=0.5.2"]
+requires = ["toga-web~=0.5.0"]
 style_framework = "Shoelace v2.3"
