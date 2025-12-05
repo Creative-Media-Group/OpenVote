@@ -2,7 +2,7 @@ import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
 import locale
-from mylocale import tr
+from mylocale import TR
 
 
 platform = toga.platform.current_platform
@@ -21,6 +21,7 @@ class OpenVote(toga.App):
             ).split("_")[0]
         else:
             self.lang = locale.getlocale()[0].split("_")[0]
+        self.tr = TR(langcode=self.lang, csv_file=self.file)
         hometab = toga.Box(
             children=[
                 toga.Label(
@@ -28,8 +29,7 @@ class OpenVote(toga.App):
                     style=Pack(font_size=50, text_align="center", margin=10),
                 ),
                 toga.Button(
-                    tr(
-                        csv_file=self.file,
+                    self.tr.tr(
                         target_key="DISTRICTCOUNCILELECTION",
                         langcode=self.lang,
                     ),
@@ -37,8 +37,7 @@ class OpenVote(toga.App):
                     style=Pack(text_align="center", margin=10),
                 ),
                 toga.Button(
-                    tr(
-                        csv_file=self.file,
+                    self.tr.tr(
                         target_key="FEDERALELECTION",
                         langcode=self.lang,
                     ),
@@ -53,41 +52,36 @@ class OpenVote(toga.App):
         self.container = toga.OptionContainer(
             content=[
                 toga.OptionItem(
-                    tr(csv_file=self.file, target_key="HELLO", langcode=self.lang),
+                    self.tr.tr(target_key="HELLO", langcode=self.lang),
                     hometab,
                     icon=toga.Icon(
-                        tr(
-                            csv_file=self.file,
+                        self.tr.tr(
                             target_key="HELLO_PATH",
                             langcode=self.lang,
                         ).format(path=self.mypath)
                     ),
                 ),
                 toga.OptionItem(
-                    tr(
-                        csv_file=self.file,
+                    self.tr.tr(
                         target_key="DISTRICTCOUNCILELECTION",
                         langcode=self.lang,
                     ),
                     district_tab,
                     icon=toga.Icon(
-                        tr(
-                            csv_file=self.file,
+                        self.tr.tr(
                             target_key="DISTRICTCOUNCILELECTION_PATH",
                             langcode=self.lang,
                         ).format(path=self.mypath)
                     ),
                 ),
                 toga.OptionItem(
-                    tr(
-                        csv_file=self.file,
+                    self.tr.tr(
                         target_key="FEDERALELECTION",
                         langcode=self.lang,
                     ),
                     federal_tab,
                     icon=toga.Icon(
-                        tr(
-                            csv_file=self.file,
+                        self.tr.tr(
                             target_key="FEDERALELECTION_PATH",
                             langcode=self.lang,
                         ).format(path=self.mypath)
